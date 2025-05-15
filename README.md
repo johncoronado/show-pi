@@ -4,7 +4,7 @@ A streamlined Raspberry Pi 4/5 configuration for designed as a compact, deployab
 
 ## Overview
 
-This project automates the setup of a Raspberry Pi to serve as a multifunctional utility device in professional production environments. It includes tools for show control, timing, file sharing, and visual overlays.
+This project automates the setup of a Raspberry Pi to serve as a multifunctional utility device in production environments. It includes tools for show control, timing, file sharing, and visual overlays.
 
 ### Key Components
 
