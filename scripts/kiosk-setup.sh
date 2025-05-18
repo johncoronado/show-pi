@@ -44,5 +44,8 @@ fi
 # cleaning up apt caches
 sudo apt clean > /dev/null 2>&1 &
 
+# Runs hide-cursor script
+bash scripts/hide-labwc-cursor.sh
+
 # Print completion message
 echo -e "Ontime Kiosk created"
