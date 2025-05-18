@@ -1,2 +1,3 @@
 # Ignore user-specific config
 config-files/smb.conf
+test-images
