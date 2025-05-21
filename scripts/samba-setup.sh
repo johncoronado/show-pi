@@ -1,7 +1,3 @@
-
-
-
-
 #!/bin/bash
 
 # Install samba with packages recommends
