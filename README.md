@@ -17,6 +17,9 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - **Samba**  
   Provides simple file sharing between the Pi and other devices over the network.
 
+- **Image Playback**   
+  Using Samba and pqiv, drop image file or files into the images share folder for immediate playback over the timer output. Great for still-stores and looping slideshow playback.  
+
 ## Features
 
 - Headless-friendly setup with minimal GUI footprint.
