@@ -14,16 +14,16 @@ fi
 while IFS= read -r script_path; do
   # Check if the script exists and is executable
   if [[ -x "$script_path" && -f "$script_path" ]]; then
-    echo -n "Run script: $script_path? (y/n): "
+    echo -e -n  "\nRun script: \033[1m$(basename "$script_path")\033[0m? (y/n): "
     read -r -p "" choice < /dev/tty
     if [[ "$choice" =~ ^[Yy]$ ]]; then
      bash "$script_path" < /dev/tty
     else
-      echo "Skipped: $script_path"
+      echo -e "Skipped: $(basename "$script_path")"
     fi
   else
-    echo "Skipping: $script_path (not found or not executable)"
+    echo -e "Skipping: $(basename "$script_path")"
   fi
 done < "$ORDER_FILE"
 
-echo "All scripts processed from $ORDER_FILE."
+echo -e "\n\033[1;31mSetup complete. Please reboot your system!\033[0m\n"
