@@ -29,7 +29,6 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - HDMI output targeting for timer display and overlays.
 - Customizable startup behavior via shell scripts.
 - Git-based workflow for deploying and updating config files.
-- Script-based installation using `apt`, Docker, and systemd for service control.
 
 ## Use Cases
 
