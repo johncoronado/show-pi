@@ -6,7 +6,7 @@ APP="mpv"
 
 # Function to count videos files recursively
 count_videos() {
-  find "$WATCH_DIR" -type f \( -iname "*.mov" -o -iname "*.mp4" -o -iname "*.m4a" \) | wc -l
+  find "$WATCH_DIR" -type f \( -iname "*.mov" -o -iname "*.mp4" -o -iname "*.m4a" -o -iname "*.avi" -o -iname "*.flv" -o -iname "*.mkv" \) | wc -l
 }
 
 # Start infinite watch loop
