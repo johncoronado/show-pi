@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install samba with packages recommends
-sudo apt install samba 
+sudo apt install samba -y 
 
 # Get the current user and home directory
 current_user=$(whoami)
