@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Directory to watch for images
+# Directory to watch for videos
 WATCH_DIR="$HOME/show-pi/showfiles/show-videos"
 APP="mpv"
 
