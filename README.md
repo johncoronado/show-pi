@@ -20,6 +20,9 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - **Image Playback**   
   Using Samba and pqiv, drop image file or files into the images share folder for immediate playback over the timer output. Great for still-stores and looping slideshow playback. https://github.com/phillipberndt/pqiv
 
+- **Video Playback**   
+  Using Samba and mpv, drop a video or video files into the video share folder, for immediate playback over the timer output. Great for looping a video/videos. https://github.com/mpv-player/mpv
+
 - **Spotify Connect**  
   Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. https://github.com/dtcooper/raspotify
 
