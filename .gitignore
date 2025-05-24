@@ -1,6 +1,5 @@
 # Ignore user-specific config
 config-files/smb.conf
-test-images/
-images/
+config-files/motd
 .DS_Store
 showfiles/
