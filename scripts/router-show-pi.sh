@@ -32,7 +32,7 @@ restore_file() {
 
 install_packages() {
     apt-get update
-    DEBIAN_FRONTEND=noninteractive apt-get install -y hostapd dnsmasq iptables avahi-daemon
+    DEBIAN_FRONTEND=noninteractive apt-get install -y dhcpcd5 hostapd dnsmasq iptables avahi-daemon
     systemctl stop hostapd dnsmasq
     systemctl disable hostapd dnsmasq
 }
@@ -71,15 +71,16 @@ configure_hostapd() {
     cat > "$HOSTAPD_CONF" <<EOF
 interface=wlan0
 driver=nl80211
-ssid=MyPi_RouterAP
+ssid=show-pi
 hw_mode=g
 channel=7
+ieee80211n=1
 wmm_enabled=0
 macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
 wpa=2
-wpa_passphrase=StrongPass123
+wpa_passphrase=xsw2zaq1
 wpa_key_mgmt=WPA-PSK
 rsn_pairwise=CCMP
 EOF
@@ -119,6 +120,8 @@ enable_services() {
     systemctl unmask hostapd
     systemctl enable hostapd dnsmasq avahi-daemon
     systemctl start hostapd dnsmasq avahi-daemon
+    systemctl enable dhcpcd
+    systemctl restart dhcpcd
 }
 
 disable_services() {
