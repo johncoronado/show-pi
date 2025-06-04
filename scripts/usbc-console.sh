@@ -7,7 +7,7 @@ CMDLINE=/boot/firmware/cmdline.txt
 # Add dtoverlay to config.txt if not present
 if ! sudo grep -q "^dtoverlay=dwc2,dr_mode=peripheral" "$CONFIG"; then
   echo "Adding dtoverlay=dwc2,dr_mode=peripheral to $CONFIG"
-  sudo echo "dtoverlay=dwc2,dr_mode=peripheral" >> "$CONFIG"
+  echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a "$CONFIG" > /dev/null
 else
   echo "dtoverlay line already present in $CONFIG"
 fi
