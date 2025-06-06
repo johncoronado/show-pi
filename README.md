@@ -26,6 +26,9 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - **Spotify Connect**  
   Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. https://github.com/dtcooper/raspotify
 
+- **USB-C Serial Console**
+  Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner.
+
 ## Features
 
 - Headless-friendly setup with minimal GUI footprint.
@@ -65,6 +68,26 @@ cd show-pi
 ```bash
 sudo reboot
 ```
+
+##USB-C Console Access (Mac/PC)
+
+- Connect
+   Plug a USB-C cable from your Mac or PC into the Raspberry Pi’s USB-C port.
+
+- Find the Serial Port
+   - Mac: Open Terminal and run:
+     ls /dev/tty.usb*
+   - Windows: Open Device Manager and check under “Ports (COM & LPT)” for “USB Serial”
+
+- Open Terminal Connection
+   - Mac/Linux:
+     screen /dev/tty.usbXXXXX 115200
+   - Windows:
+     Use PuTTY → select the correct COM port → set Speed to 115200
+
+- Login to Pi
+   When the console appears, log in with your Raspberry Pi username and password.
+
 
 ## Disclaimer
 
