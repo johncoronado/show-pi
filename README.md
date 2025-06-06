@@ -29,6 +29,9 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - **USB-C Serial Console**  
   Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner.
 
+- **Hotspot Router**  
+  Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment. 
+  
 ## Features
 
 - Headless-friendly setup with minimal GUI footprint.
