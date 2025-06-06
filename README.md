@@ -31,7 +31,7 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 
 - **Hotspot Router**  
   Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment. 
-
+  
 ## Features
 
 - Headless-friendly setup with minimal GUI footprint.
