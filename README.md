@@ -69,7 +69,7 @@ cd show-pi
 sudo reboot
 ```
 
-##USB-C Console Access (Mac/PC)
+## USB-C Console Access (Mac/PC)
 
 - Connect
    Plug a USB-C cable from your Mac or PC into the Raspberry Pi’s USB-C port.
