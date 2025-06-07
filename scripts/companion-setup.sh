@@ -15,7 +15,7 @@ echo -e -n  "\n\033[1m"Install Companion?"\033[0m (y/n): "
 
 	# Sets stable build and runs the script with root privileges using bash
 	sudo COMPANION_BUILD=stable bash install.sh > /tmp/log.txt 2>&1 &
-    spinner $! "Doing something..." /tmp/log.txt
+    spinner $! "Installing Companion. Be ready to select build..." /tmp/log.txt
     sudo companion-update
 
 

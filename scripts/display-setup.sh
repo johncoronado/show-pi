@@ -21,7 +21,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 
     # Install packages
     sudo apt install --no-install-recommends unclutter-xfixes chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y > /tmp/log.txt 2>&1 &
-    spinner $! "Installing packages..." /tmp/log.txt
+    spinner $! "Setting up display outputs..." /tmp/log.txt
 
     # Copies .xinitrc file
     cp "/home/$CURRENT_USER/show-pi/config-files/xinitrc.conf" "/home/$CURRENT_USER/.xinitrc"

@@ -57,13 +57,21 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
 - Run the update command
-
 ```bash
-sudo apt update & sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
-- Reboot if prompted.
-- Clone the repository and run the setup script:
 
+- Reboot your system
+```bash
+sudo reboot
+```
+
+- Install git
+```bash
+sudo apt install git
+```
+
+- Clone the repository and run the setup script:
 ```bash
 git clone https://github.com/johncoronado/show-pi.git
 cd show-pi

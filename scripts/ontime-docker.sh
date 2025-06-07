@@ -38,5 +38,5 @@ read -r -p "" choice < /dev/tty
 
         echo "Ontime Docker container started."
     else
-        echo -e "Skipped Ontimer Timer insatll.\n"
+        echo -e "Skipped Ontimer Timer install.\n"
     fi
