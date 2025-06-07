@@ -22,24 +22,24 @@ disconnect_wlan0() {
 start_hotspot() {
     echo "Starting 'show-pi' hotspot..."
 
-    # Ask for password
-    read -rsp "Enter Wi-Fi password for 'show-pi': " WIFI_PASSWORD
-    echo
 
     # Check if 'showpi-hotspot' already exists
     if ! nmcli connection show | grep -q "showpi-hotspot"; then
         echo "Creating hotspot connection..."
+        
+        # Ask for password
+        read -rsp "Enter Wi-Fi password for 'show-pi': " WIFI_PASSWORD
+        echo
         sudo nmcli device wifi hotspot ifname wlan0 ssid show-pi password "$WIFI_PASSWORD"
         sudo nmcli connection modify Hotspot connection.id showpi-hotspot 2>/dev/null
+        sudo nmcli connection modify showpi-hotspot connection.autoconnect yes
+        echo "Disconnecting from $current_conn"
+        echo "Please connect to show-pi wifi"
+        sudo nmcli connection up showpi-hotspot
     else
         echo "Hotspot connection already exists."
-        sudo nmcli connection modify showpi-hotspot 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
-        sudo nmcli connection modify showpi-hotspot wifi-sec.key-mgmt wpa-psk wifi-sec.psk "$WIFI_PASSWORD"
     fi
-    disconnect_wlan0
-    sudo nmcli connection up showpi-hotspot
-    sudo nmcli connection modify showpi-hotspot connection.autoconnect yes
-
+    
     echo "Hotspot 'showpi-hotspot' is now active."
 }
 
@@ -58,8 +58,14 @@ connect_known_wifi() {
     selected_conn=$(nmcli connection show | grep wifi | awk '{print $1}' | sed -n "${choice}p")
 
     if [[ -n "$selected_conn" ]]; then
+        current_conn=$(get_wlan0_connection)
+
+        if [[ "$current_conn" == "$selected_conn" ]]; then
+            echo "Already connected to '$selected_conn'. Skipping reconnect."
+            exit 0
+        fi
+
         echo "Connecting wlan0 to '$selected_conn'..."
-        disconnect_wlan0
         sudo nmcli connection up "$selected_conn"
     else
         echo "Invalid selection."
@@ -76,11 +82,9 @@ read -rp "Choose an option: " user_choice
 
 case "$user_choice" in
     1)
-      # disconnect_wlan0
         start_hotspot
         ;;
     2)
-      # disconnect_wlan0
         connect_known_wifi
         ;;
     3)
