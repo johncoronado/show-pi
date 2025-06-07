@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Sourcing spinner script in scripts directory
+source $HOME/show-pi/scripts/spinner.sh
+
 # Asks to run script
 echo -e -n  "\n\033[1m"Install Show-Pi Videos?"\033[0m (y/n): "
 read -r -p "" choice < /dev/tty
@@ -8,7 +11,8 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     IMAGES_DIR="$HOME/show-pi/showfiles/show-videos"
 
     # Installs packages for videos.
-    sudo apt install mpv inotify-tools -y
+    sudo apt install mpv inotify-tools -y > /tmp/log.txt 2>&1 &
+    spinner $! "Installing videos program..." /tmp/log.txt
     echo "Packages installed"
 
     # Makes directory for playback videos. 
