@@ -35,9 +35,10 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 ## Features
 
 - Headless-friendly setup with minimal GUI footprint.
-- HDMI output targeting for timer display and overlays.
-- Customizable startup behavior via shell scripts.
+- HDMI output of timer, images, and videos with autostart.
+- Drag-and-drop images and videos to play folders to auto-play via Samba file share. 
 - Git-based workflow for deploying and updating config files.
+- Hotspot for wireless control and config while in the field.
 
 ## Use Cases
 
