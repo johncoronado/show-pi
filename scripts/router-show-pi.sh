@@ -36,7 +36,7 @@ start_hotspot() {
         sudo nmcli connection modify showpi-hotspot 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
         sudo nmcli connection modify showpi-hotspot wifi-sec.key-mgmt wpa-psk wifi-sec.psk "$WIFI_PASSWORD"
     fi
-
+    disconnect_wlan0
     sudo nmcli connection up showpi-hotspot
     sudo nmcli connection modify showpi-hotspot connection.autoconnect yes
 
@@ -59,6 +59,7 @@ connect_known_wifi() {
 
     if [[ -n "$selected_conn" ]]; then
         echo "Connecting wlan0 to '$selected_conn'..."
+        disconnect_wlan0
         sudo nmcli connection up "$selected_conn"
     else
         echo "Invalid selection."
@@ -75,11 +76,11 @@ read -rp "Choose an option: " user_choice
 
 case "$user_choice" in
     1)
-        disconnect_wlan0
+      # disconnect_wlan0
         start_hotspot
         ;;
     2)
-        disconnect_wlan0
+      # disconnect_wlan0
         connect_known_wifi
         ;;
     3)
