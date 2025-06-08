@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo -e "Enabling HDMI output...\n"
 # Check if the script is being run as root, exit if true
 if [ "$(id -u)" -eq 0 ]; then
   echo "This script should not be run as root. Please run as a regular user with sudo permissions."
