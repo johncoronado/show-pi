@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 # Function to get the current wlan0 connection
 get_wlan0_connection() {
     nmcli -t -f DEVICE,STATE,CONNECTION device | grep "^wlan0:" | cut -d: -f3
@@ -26,7 +24,7 @@ start_hotspot() {
     # Check if 'showpi-hotspot' already exists
     if ! nmcli connection show | grep -q "showpi-hotspot"; then
         echo "Creating hotspot connection..."
-        
+
         # Ask for password
         read -rsp "Enter Wi-Fi password for 'show-pi': " WIFI_PASSWORD
         echo
@@ -71,29 +69,40 @@ connect_known_wifi() {
     fi
 }
 
-# Main menu
-echo "wlan0 manager:"
-echo "1) Start 'show-pi' hotspot"
-echo "2) Connect to known Wi-Fi"
-echo "3) Add connection with nmtui"
-echo "4) Exit"
-read -rp "Choose an option: " user_choice
+# Asks to run script
+echo -e -n  "\n\033[1m"Run Show-Pi Wi-Fi Manager?"\033[0m (y/n): "
+    read -r -p "" choice < /dev/tty
+    if [[ "$choice" =~ ^[Yy]$ ]]; then
+        set -e
 
-case "$user_choice" in
-    1)
-        start_hotspot
-        ;;
-    2)
-        connect_known_wifi
-        ;;
-    3)
-	sudo nmtui
-	;;
-    4)
-        echo "Exiting."
-        ;;
-    *)
-        echo "Invalid selection."
-        ;;
-esac
+        # Warns about disconnection
+        echo -e "\033[1;31mWARNING! You may lose access to your device!\033[0m"
+        echo -e "\033[1;33mIt's recommended to be hardwired while configuring wireless.\033[0m\n"
+	# Main menu
+	echo -e "Show-Pi Wi-Fi Manager"
+	echo "1) Start 'show-pi' hotspot"
+	echo "2) Connect to known Wi-Fi"
+	echo "3) Add connection with nmtui"
+	echo "4) Exit"
+	read -rp "Choose an option: " user_choice
 
+	case "$user_choice" in
+	    1)
+	        start_hotspot
+	        ;;
+	    2)
+	        connect_known_wifi
+	        ;;
+	    3)
+		sudo nmtui
+		;;
+	    4)
+	        echo "Exiting."
+	        ;;
+	    *)
+	        echo "Invalid selection."
+	        ;;
+	esac
+    else
+	echo -e "Skipped Show-Pi Router\n"
+   fi

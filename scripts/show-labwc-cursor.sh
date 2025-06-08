@@ -5,7 +5,7 @@
 # Renames the left pointer icon to left_ptr
 sudo mv /usr/share/icons/Adwaita/cursors/left_ptr.backup /usr/share/icons/Adwaita/cursors/left_ptr
 
-# Kills labwc , which restarted right after
+# Kills labwc , which restarts right after
 sudo killall labwc
 
 # Complete with feedback.
