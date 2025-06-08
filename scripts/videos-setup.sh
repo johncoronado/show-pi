@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Asks to run script
-echo -e -n  "\n\033[1m"Install Companion?"\033[0m (y/n): "
+echo -e -n  "\n\033[1m"Install Show-Pi Videos?"\033[0m (y/n): "
 read -r -p "" choice < /dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
