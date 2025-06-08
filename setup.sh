@@ -20,3 +20,5 @@ while IFS= read -r script_path; do
      echo -e "Show-Pi setup exited\n"
   fi
 done < "$ORDER_FILE"
+
+echo -e "\n\033[1;31mSetup complete. Please reboot your system!\033[0m\n"
