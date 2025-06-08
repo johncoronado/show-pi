@@ -36,13 +36,11 @@ start_hotspot() {
         echo "Disconnecting from $current_conn"
         echo "Please connect to show-pi wifi"
         sudo nmcli connection up showpi-hotspot
+        exit=0
     else
         echo "Hotspot connection already exists."
     fi
-    
-    echo "Hotspot 'showpi-hotspot' is now active."
 }
-
 # Function to connect to another known Wi-Fi
 connect_known_wifi() {
     echo "Available known Wi-Fi connections:"
@@ -77,7 +75,8 @@ connect_known_wifi() {
 echo "wlan0 manager:"
 echo "1) Start 'show-pi' hotspot"
 echo "2) Connect to known Wi-Fi"
-echo "3) Exit"
+echo "3) Add connection with nmtui"
+echo "4) Exit"
 read -rp "Choose an option: " user_choice
 
 case "$user_choice" in
@@ -88,6 +87,9 @@ case "$user_choice" in
         connect_known_wifi
         ;;
     3)
+	sudo nmtui
+	;;
+    4)
         echo "Exiting."
         ;;
     *)
