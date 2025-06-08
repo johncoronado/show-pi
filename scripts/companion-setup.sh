@@ -12,7 +12,7 @@ echo -e -n  "\n\033[1m"Install Companion?"\033[0m (y/n): "
 	chmod +x install.sh
 
 	# Sets stable build and runs the script with root privileges using bash
-	sudo COMPANION_BUILD="v3.5.5" bash install.sh
+	sudo COMPANION_BUILD="v4.0.0" bash install.sh
 
 	# Removes the script from show-pi directory
 	rm install.sh
