@@ -36,7 +36,7 @@ start_hotspot() {
         echo "Disconnecting from $current_conn"
         echo "Please connect to show-pi wifi"
         sudo nmcli connection up showpi-hotspot
-        exit=0
+        exit 0
     else
         echo "Hotspot connection already exists."
     fi
