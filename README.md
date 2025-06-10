@@ -33,7 +33,7 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment.
 
 - **Dual Screen Output**  
-  Use both HDMI ports for timer and image/video playback. Enables always on timer mode (HDMI-0) with playback out on black in standby for content. (HDMI-1)
+  Use both HDMI ports for timer and image/video playback. Enables always on timer mode (HDMI-0) with playback out on black in standby for content. (HDMI-0)
 
 ## Features
 
@@ -53,8 +53,8 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 ## Installation
 
 - Use the official Raspberry Pi Imager (https://www.raspberrypi.com/software/) to download and install Raspberry Pi OS Lite (64-bit) on your connected boot drive of choice (SD card or USB).
-- Customize your OS setting on Raspberry Pi Imager to preconfigure you hostname, username, wifi, etc.
-- Boot your fresh install of Raspberry Pi OS Lite. It may reboot several time for first boot.
+- Customize your OS setting on Raspberry Pi Imager to preconfigure your hostname, username, wifi, etc.
+- Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
 - Run the update command
 
