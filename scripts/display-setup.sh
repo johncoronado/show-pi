@@ -16,29 +16,30 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     # Get the current username
     CURRENT_USER=$(whoami)
 
-    # Sets Ontime Timer URL to localhost (not actually used below, so you could remove if unused)
-    USER_URL="127.0.0.1:4001/timer"
-
     # Install packages
-    sudo apt install chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y
+    sudo apt install chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm -y
 
     # Copies .xinitrc file
     cp "/home/$CURRENT_USER/show-pi/config-files/xinitrc.conf" "/home/$CURRENT_USER/.xinitrc"
 
-    # Appends Xwrapper.config file
-    echo -e "\nallowed_users=anybody\nneeds_root_rights=yes" | sudo tee -a /etc/X11/Xwrapper.config
+    sudo tee /etc/systemd/system/x11-session.service > /dev/null <<EOF
+[Unit]
+Description=Start X11 session with Chromium and pqiv
+After=network.target
 
-    # Creates a systemd service file
-    mkdir -p "$HOME/.config/systemd/user"
-    cp "$HOME/show-pi/config-files/x11-session.conf" "$HOME/.config/systemd/user/x11-session.service"
-    echo "Copying x11-session.conf"
+[Service]
+User=$CURRENT_USER
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/startx
+Restart=on-failure
 
-    # Enables and starts service
-    echo "Starting service"
+[Install]
+WantedBy=multi-user.target
+EOF
 
-    systemctl --user daemon-reload
-    systemctl --user enable x11-session.service
-    systemctl --user start x11-session.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable x11-session.service
+    sudo systemctl start x11-session.service
 
     echo -e "Display output setup complete."
 else
