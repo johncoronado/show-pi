@@ -30,7 +30,7 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner.
 
 - **Hotspot Router**  
-  Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment. 
+  Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment.
   
 ## Features
 
@@ -50,8 +50,8 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 ## Installation
 
 - Use the official Raspberry Pi Imager (https://www.raspberrypi.com/software/) to download and install Raspberry Pi OS Lite (64-bit) on your connected boot drive of choice (SD card or USB).
-- Customize your OS setting on Raspberry Pi Imager to preconfigure you hostname, username, wifi, etc.
-- Boot your fresh install of Raspberry Pi OS Lite. It may reboot several time for first boot.
+- Customize your OS setting on Raspberry Pi Imager to preconfigure your hostname, username, wifi, etc.
+- Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
 - Run the update command
 
