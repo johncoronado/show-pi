@@ -12,26 +12,29 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Manages device control via stream decks or web interface. https://github.com/bitfocus/companion
 
 - **OnTime**  
-  Runs a show timer server inside Docker. The system automatically launches the full-screen timer output on HDMI0 using a minimal GUI environment. https://github.com/cpvalente/ontime
+  Runs a show timer server inside Docker. The system automatically launches the full-screen timer output on HDMI0 using a minimal GUI environment. When both HDMI outputs are active on boot, the timer goes to HDMI-1. So that images and videos can play back fullscreen on HDMI-0.  https://github.com/cpvalente/ontime
 
 - **Samba**  
   Provides simple file sharing between the Pi and other devices over the network. https://github.com/samba-team/samba
 
 - **Image Playback**   
-  Using Samba and pqiv, drop image file or files into the images share folder for immediate playback over the timer output. Great for still-stores and looping slideshow playback. https://github.com/phillipberndt/pqiv
+  Using Samba and pqiv, drop image file or files into the images share folder for immediate playback over the timer output or on HDMI-0 when timer is use on HDMI-1. Great for still-stores and looping slideshow playback. https://github.com/phillipberndt/pqiv
 
 - **Video Playback**   
-  Using Samba and mpv, drop a video or video files into the video share folder, for immediate playback over the timer output. Great for looping a video/videos. https://github.com/mpv-player/mpv
+  Using Samba and mpv, drop a video or video files into the video share folder, for immediate playback over the timer output or on HDMI-0 when timer is use on HDMI-1. Great for looping a video/videos. 1080p max and videos should be encoded for the Pi. https://github.com/mpv-player/mpv
 
 - **Spotify Connect**  
-  Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. https://github.com/dtcooper/raspotify
+  Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. Will wokr with Rasberry Pi 5 with addition soundcard and setup of the asound.conf file. https://github.com/dtcooper/raspotify
 
 - **USB-C Serial Console**  
-  Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner.
+  Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner. This script is available but not run on the main setup. 
 
 - **Hotspot Router**  
-  Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment. 
-  
+  Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment.
+
+- **Dual Screen Output**  
+  Use both HDMI ports for timer and image/video playback. Enables always on timer mode (HDMI-0) with playback out on black in standby for content. (HDMI-1)
+
 ## Features
 
 - Headless-friendly setup with minimal GUI footprint.
@@ -56,10 +59,9 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - Run the update command
 
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update & sudo apt upgrade -y
 ```
-
+- Reboot if prompted.
 - Clone the repository and run the setup script:
 
 ```bash
@@ -74,7 +76,10 @@ sudo reboot
 ```
 
 ## USB-C Console Access (Mac/PC)
-
+- Run the USB-C Console script prior to use. It is recommended use is during times of hotspot or networking changes. This ensures a connection is available to revert settings if connection or access is lost.
+```bash
+./scripts/usbc-console.sh
+```
 - Connect
    Plug a USB-C cable from your Mac or PC into the Raspberry Pi’s USB-C port.
 
