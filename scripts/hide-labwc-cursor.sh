@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Hides cursor in labwc by moving left pointer cursor.
-# Mouse movemoent is still being track. If the pointer is moved over area
-# with different pointer icon, the pointer will show. 
+# Mouse movement is still being tracked. If the pointer is moved over area
+# with different pointer icon, the pointer will show.
 
 # Renames the left pointer icon to left_ptr.backup so system does not load it. 
 sudo mv /usr/share/icons/Adwaita/cursors/left_ptr /usr/share/icons/Adwaita/cursors/left_ptr.backup
