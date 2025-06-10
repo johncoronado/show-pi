@@ -48,6 +48,10 @@ EOF
     else
       echo "Xwrapper.config already contains allowed_users=anybody"
     fi
+    
+    # Copies config to force rpi5 to used correct setting for gpu
+    sudo cp $HOME/show-pi/config-files/99-v3d.conf /etc/X11/xorg.conf.d/
+    echo -e "Adding Rpi5 99-v3d-conf file"
 
     # Reloads and enables x11 session service
     sudo systemctl daemon-reload
