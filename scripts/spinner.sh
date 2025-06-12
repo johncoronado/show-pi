@@ -26,7 +26,7 @@ spinner() {
         printf "\r\e[31m✖\e[0m %s\n" "$message"
         if [ -n "$logfile" ]; then
             echo "    See $logfile for details. Last 20 lines:"
-            tail -20 "$logfile"
+            tail -1 "$logfile"
         fi
     fi
 }

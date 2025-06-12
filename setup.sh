@@ -3,6 +3,13 @@
 # This start setup script goes through the script-run-order.conf and
 # creates a small footprint of interactivity.
 
+# Gets spinner funtion
+# spinner example.
+#       Command > /tmp/log.txt 2>&1 &
+#       spinner $! "Doing something..." /tmp/log.txt
+source $HOME/git-keys/spinner.sh
+
+
 ORDER_FILE="config-files/script-run-order.conf"
 
 # Check if the order file exists
@@ -21,6 +28,7 @@ while IFS= read -r script_path; do
   fi
 done < "$ORDER_FILE"
 # Clean up packages
-sudo apt autoremove -y
+sudo apt autoremove -y > /tmp/log.txt 2>&1 &
+spinner $! "Cleaning up..." /tmp/log.txt
 
 echo -e "\n\033[1;31mSetup complete. Please reboot your system!\033[0m\n"

@@ -11,7 +11,6 @@ read -r -p "" choice < /dev/tty
 
         # Install Docker for raspi from official documentation
         echo "Starting Ontime Docker setup..."
-        echo "Downloading Docker"
         curl -sSL https://get.docker.com | sh > /tmp/log.txt 2>&1 &
         spinner $! "Getting Docker..." /tmp/log.txt
 
@@ -28,15 +27,13 @@ read -r -p "" choice < /dev/tty
           exit 1
         }
         # Install docker-compose
-        echo "Downloading docker-compose"
         sudo apt install -y docker-compose > /tmp/log.txt 2>&1 &
-        spinner $! "Installing Docker Compose..." /tmp/log.txt
+        spinner $! "Getting docker-compose..." /tmp/log.txt
 
         # Start docker-compose in detached mode
-        echo "Starting docker with docker compose in detached mode"
-        sudo docker-compose up -d 
-
-        echo "Ontime Docker container started."
+        sudo docker-compose up -d > /tmp/log.txt 2>&1 & 
+        spinner $! "Starting Ontime..." /tmp/log.txt
+        echo "Ontime container started."
     else
         echo -e "Skipped Ontimer Timer install.\n"
     fi

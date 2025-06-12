@@ -9,7 +9,6 @@ read -r -p "" choice < /dev/tty
 
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
-    echo -e "Enabling HDMI output...\n"
     # Check if the script is being run as root, exit if true
     if [ "$(id -u)" -eq 0 ]; then
         echo "This script should not be run as root. Please run as a regular user."
@@ -49,13 +48,10 @@ EOF
     # checks for config in Xwrapper before trying to add.
     if ! grep -q '^allowed_users=anybody' /etc/X11/Xwrapper.config 2>/dev/null; then
       echo -e "\nallowed_users=anybody\nneeds_root_rights=yes" | sudo tee -a /etc/X11/Xwrapper.config
-    else
-      echo "Xwrapper.config already contains allowed_users=anybody"
     fi
-    
+
     # Copies config to force rpi5 to used correct setting for gpu
     sudo cp $HOME/show-pi/config-files/99-v3d.conf /etc/X11/xorg.conf.d/
-    echo -e "Adding Rpi5 99-v3d-conf file"
 
     # Reloads and enables x11 session service
     sudo systemctl daemon-reload
