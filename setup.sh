@@ -9,7 +9,6 @@
 #       spinner $! "Doing something..." /tmp/log.txt
 source $HOME/git-keys/spinner.sh
 
-
 ORDER_FILE="config-files/script-run-order.conf"
 
 # Check if the order file exists
@@ -22,11 +21,11 @@ fi
 while IFS= read -r script_path; do
   # Check if the script exists and is executable
   if [[ -x "$script_path" && -f "$script_path" ]]; then
-     bash "$script_path" < /dev/tty
+    bash "$script_path" </dev/tty
   else
-     echo -e "Show-Pi setup exited\n"
+    echo -e "Show-Pi setup exited\n"
   fi
-done < "$ORDER_FILE"
+done <"$ORDER_FILE"
 # Clean up packages
 sudo apt autoremove -y > /tmp/log.txt 2>&1 &
 spinner $! "Cleaning up..." /tmp/log.txt
