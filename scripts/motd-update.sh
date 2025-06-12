@@ -15,7 +15,7 @@ MOTD_FILE="$HOME/show-pi/config-files/motd"
     echo -e "It is recommended that you bookmark these websites for fast access.\n"
     echo -e "Use ./scripts/hotspot-setup.sh for networking setup. Or nmtui."
 
-} >> "$MOTD_FILE"
+} >>"$MOTD_FILE"
 
 sudo cp $MOTD_FILE /etc/motd
 echo -e "\nMOTD file has been updated"

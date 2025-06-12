@@ -27,7 +27,7 @@ while IFS= read -r script_path; do
   fi
 done <"$ORDER_FILE"
 # Clean up packages
-sudo apt autoremove -y > /tmp/log.txt 2>&1 &
+sudo apt autoremove -y >/tmp/log.txt 2>&1 &
 spinner $! "Cleaning up..." /tmp/log.txt
 
 echo -e "\n\033[1;31mSetup complete. Please reboot your system!\033[0m\n"

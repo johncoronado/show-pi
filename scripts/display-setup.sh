@@ -5,7 +5,7 @@ source $HOME/show-pi/scripts/spinner.sh
 
 # Asks to run script
 echo -ne "\n\033[1mSet up display output?\033[0m (y/n): "
-read -r -p "" choice < /dev/tty
+read -r -p "" choice </dev/tty
 
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
@@ -19,14 +19,14 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     CURRENT_USER=$(whoami)
 
     # Install packages
-    sudo apt install --no-install-recommends unclutter-xfixes chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y > /tmp/log.txt 2>&1 &
+    sudo apt install --no-install-recommends unclutter-xfixes chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y >/tmp/log.txt 2>&1 &
     spinner $! "Setting up display outputs..." /tmp/log.txt
 
     # Copies .xinitrc file
     cp "/home/$CURRENT_USER/show-pi/config-files/xinitrc.conf" "/home/$CURRENT_USER/.xinitrc"
 
-    # activates x11 session as a systemd service. 
-    sudo tee /etc/systemd/system/x11-session.service > /dev/null <<EOF
+    # activates x11 session as a systemd service.
+    sudo tee /etc/systemd/system/x11-session.service >/dev/null <<EOF
 [Unit]
 Description=Start X11 session with Chromium and pqiv
 After=network.target
@@ -47,7 +47,7 @@ EOF
 
     # checks for config in Xwrapper before trying to add.
     if ! grep -q '^allowed_users=anybody' /etc/X11/Xwrapper.config 2>/dev/null; then
-      echo -e "\nallowed_users=anybody\nneeds_root_rights=yes" | sudo tee -a /etc/X11/Xwrapper.config
+        echo -e "\nallowed_users=anybody\nneeds_root_rights=yes" | sudo tee -a /etc/X11/Xwrapper.config
     fi
 
     # Copies config to force rpi5 to used correct setting for gpu

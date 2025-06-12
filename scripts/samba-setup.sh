@@ -4,23 +4,23 @@
 source $HOME/show-pi/scripts/spinner.sh
 
 # Asks to run script
-echo -e -n  "\n\033[1m"Install Show-Pi file sharing?"\033[0m (y/n): "
-    read -r -p "" choice < /dev/tty
-    if [[ "$choice" =~ ^[Yy]$ ]]; then 
+echo -e -n "\n\033[1m"Install Show-Pi file sharing?"\033[0m (y/n): "
+read -r -p "" choice </dev/tty
+if [[ "$choice" =~ ^[Yy]$ ]]; then
 
 	# Install samba with packages recommends
-	sudo apt install samba -y > /tmp/log.txt 2>&1 &
-    spinner $! "Installing Samba file share..." /tmp/log.txt
+	sudo apt install samba -y >/tmp/log.txt 2>&1 &
+	spinner $! "Installing Samba file share..." /tmp/log.txt
 
 	# Get the current user and home directory
 	current_user=$(whoami)
 	user_home=$(eval echo ~$USER)
 
 	#adds user to samba user list gives terminal input
-	sudo smbpasswd -a "$current_user" < /dev/tty
+	sudo smbpasswd -a "$current_user" </dev/tty
 
 	# Create the 'showfiles' directory if it doesn't exist
-	mkdir -p showfiles 
+	mkdir -p showfiles
 
 	#Copy Samba template conf to new file
 	cp ~/show-pi/config-files/smb-temp.conf ~/show-pi/config-files/smb.conf
@@ -29,7 +29,7 @@ echo -e -n  "\n\033[1m"Install Show-Pi file sharing?"\033[0m (y/n): "
 	smb_conf="$user_home/show-pi/config-files/smb.conf"
 
 	# Append the share configuration for the current user
-	cat <<EOL >> "$smb_conf"
+	cat <<EOL >>"$smb_conf"
 
 [showfiles]
   path = $user_home/show-pi/showfiles
@@ -54,18 +54,18 @@ EOL
 
 	# Check if the source file exists
 	if [[ -f "$source" ]]; then
-	    # Copy smb.conf to /etc/samba/
-	    sudo cp "$source" "$destination"
+		# Copy smb.conf to /etc/samba/
+		sudo cp "$source" "$destination"
 
-	    # Set the correct permissions for the file (optional)
-	    sudo chmod 644 "$destination"
-	    sudo chown root:root "$destination"
+		# Set the correct permissions for the file (optional)
+		sudo chmod 644 "$destination"
+		sudo chown root:root "$destination"
 	else
-	    echo "Error: $source does not exist. Please check the file path."
+		echo "Error: $source does not exist. Please check the file path."
 	fi
 	# Restart Samba services to apply changes
-	    sudo systemctl restart smbd
-	    echo "Samba service has been restarted."
-    else
-    	echo -e "Skipped Show-Pi file sharing."
-    fi
+	sudo systemctl restart smbd
+	echo "Samba service has been restarted."
+else
+	echo -e "Skipped Show-Pi file sharing."
+fi

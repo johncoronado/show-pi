@@ -4,19 +4,18 @@
 source $HOME/show-pi/scripts/spinner.sh
 
 # Asks to run script
-echo -e -n  "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
-    read -r -p "" choice < /dev/tty
-    if [[ "$choice" =~ ^[Yy]$ ]]; then
-
+echo -e -n "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
+read -r -p "" choice </dev/tty
+if [[ "$choice" =~ ^[Yy]$ ]]; then
 
 	IMAGES_DIR="$HOME/show-pi/showfiles/show-images"
 
 	# Installs packages for images.
-	sudo apt install pqiv inotify-tools -y > /tmp/log.txt 2>&1 &
-    spinner $! "Installing images program..." /tmp/log.txt
+	sudo apt install pqiv inotify-tools -y >/tmp/log.txt 2>&1 &
+	spinner $! "Installing images program..." /tmp/log.txt
 	echo "Packages installed"
 
-	# Makes directory for playback images. 
+	# Makes directory for playback images.
 	mkdir -p "$IMAGES_DIR"
 	mkdir -p "$HOME/.config/systemd/user"
 	echo "Images directory created"
@@ -38,6 +37,6 @@ echo -e -n  "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
 	systemctl --user start show-pi-images.service
 
 	echo "Show-Pi-Images setup complete"
-    else
-        echo -e "Skipped Show-Pi Images install\n"
-    fi
+else
+	echo -e "Skipped Show-Pi Images install\n"
+fi
