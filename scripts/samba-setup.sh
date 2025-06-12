@@ -1,12 +1,16 @@
 #!/bin/bash
 
+# Sorucing spinner
+source $HOME/show-pi/scripts/spinner.sh
+
 # Asks to run script
 echo -e -n  "\n\033[1m"Install Show-Pi file sharing?"\033[0m (y/n): "
     read -r -p "" choice < /dev/tty
     if [[ "$choice" =~ ^[Yy]$ ]]; then 
 
 	# Install samba with packages recommends
-	sudo apt install samba -y
+	sudo apt install samba -y > /tmp/log.txt 2>&1 &
+    spinner $! "Installing Samba file share..." /tmp/log.txt
 
 	# Get the current user and home directory
 	current_user=$(whoami)

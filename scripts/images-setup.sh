@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Sorucing spinner
+source $HOME/show-pi/scripts/spinner.sh
+
 # Asks to run script
 echo -e -n  "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
     read -r -p "" choice < /dev/tty
@@ -9,7 +12,8 @@ echo -e -n  "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
 	IMAGES_DIR="$HOME/show-pi/showfiles/show-images"
 
 	# Installs packages for images.
-	sudo apt install pqiv inotify-tools -y
+	sudo apt install pqiv inotify-tools -y > /tmp/log.txt 2>&1 &
+    spinner $! "Installing images program..." /tmp/log.txt
 	echo "Packages installed"
 
 	# Makes directory for playback images. 
