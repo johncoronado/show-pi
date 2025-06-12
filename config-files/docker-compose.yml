@@ -10,6 +10,8 @@ services:
       - "9999:9999/udp"
     volumes:
       - "${HOME}/show-pi/ontime-data:/data/"
-    environment:
-      - TZ=America/Los_Angeles
+      - /etc/localtime:/etc/localtime:ro
+# To set a Specifi Time Zone, comment out the '/etc/localtime...' above this line.
+#   environment:
+#     - TZ=America/Los_Angeles
     restart: unless-stopped
