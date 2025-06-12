@@ -7,7 +7,8 @@ curl -O https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh
 chmod +x install.sh
 
 #Sets stable build and runs the script with root privileges using bash
-sudo COMPANION_BUILD="v3.5.4" bash install.sh
+sudo COMPANION_BUILD=stable bash install.sh
+sudo companion-update
 
 #Removes the script from show-pi directory
 rm install.sh
