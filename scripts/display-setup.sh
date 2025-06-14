@@ -25,26 +25,19 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     # Copies .xinitrc file
     cp "/home/$CURRENT_USER/show-pi/config-files/xinitrc.conf" "/home/$CURRENT_USER/.xinitrc"
 
-    # activates x11 session as a systemd service.
-    sudo tee /etc/systemd/system/x11-session.service >/dev/null <<EOF
-[Unit]
-Description=Start X11 session with Chromium and pqiv
-After=network.target
+    # Sets greetd service file
+    sudo tee /etc/greetd/config.toml > /dev/null <<EOF
+[terminal]
+vt = 1
 
-[Service]
-User=$CURRENT_USER
-Environment=DISPLAY=:0
-ExecStart=/usr/bin/startx
-Restart=on-failure
-SendSIGKILL=yes
-KillMode=mixed
-TimeoutStopSec=1
-ExecStop=/usr/bin/pkill Xorg
-
-[Install]
-WantedBy=multi-user.target
+[default_session]
+command = "startx $HOME/.xinitrc"
+user = "$CURRENT_USER"
 EOF
 
+    # Enable greetd
+    sudo systemctl enable greetd > /dev/null 2>&1 &
+    sudo systemctl set-default graphical.target > /dev/null 2>&1 &
     # checks for config in Xwrapper before trying to add.
     if ! grep -q '^allowed_users=anybody' /etc/X11/Xwrapper.config 2>/dev/null; then
         echo -e "\nallowed_users=anybody\nneeds_root_rights=yes" | sudo tee -a /etc/X11/Xwrapper.config
