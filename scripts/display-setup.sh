@@ -19,7 +19,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     CURRENT_USER=$(whoami)
 
     # Install packages
-    sudo apt install --no-install-recommends unclutter-xfixes chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y >/tmp/log.txt 2>&1 &
+    sudo apt install --no-install-recommends greetd unclutter-xfixes chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y >/tmp/log.txt 2>&1 &
     spinner $! "Setting up display outputs..." /tmp/log.txt
 
     # Copies .xinitrc file
@@ -38,6 +38,7 @@ EOF
     # Enable greetd
     sudo systemctl enable greetd > /dev/null 2>&1 &
     sudo systemctl set-default graphical.target > /dev/null 2>&1 &
+
     # checks for config in Xwrapper before trying to add.
     if ! grep -q '^allowed_users=anybody' /etc/X11/Xwrapper.config 2>/dev/null; then
         echo -e "\nallowed_users=anybody\nneeds_root_rights=yes" | sudo tee -a /etc/X11/Xwrapper.config
