@@ -36,8 +36,8 @@ user = "$CURRENT_USER"
 EOF
 
     # Enable greetd
-    sudo systemctl enable greetd > /dev/null 2>&1 &
-    sudo systemctl set-default graphical.target > /dev/null 2>&1 &
+    sudo systemctl enable greetd
+    sudo systemctl set-default graphical.target
 
     # checks for config in Xwrapper before trying to add.
     if ! grep -q '^allowed_users=anybody' /etc/X11/Xwrapper.config 2>/dev/null; then
@@ -46,11 +46,6 @@ EOF
 
     # Copies config to force rpi5 to used correct setting for gpu
     sudo cp $HOME/show-pi/config-files/99-v3d.conf /etc/X11/xorg.conf.d/
-
-    # Reloads and enables x11 session service
-    sudo systemctl daemon-reload
-    sudo systemctl enable x11-session.service
-    sudo systemctl start x11-session.service
 
     echo -e "Display output setup complete."
 else
