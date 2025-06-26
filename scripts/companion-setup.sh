@@ -15,7 +15,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 	# Get install script install.sh from github.
 	curl -O https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh
 
-	# Make the script executable
+  # Make the script executable
 	chmod +x install.sh
 
 	# Sets stable build and runs the script with root privileges using bash
