@@ -17,10 +17,10 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - **Samba**  
   Provides simple file sharing between the Pi and other devices over the network. <https://github.com/samba-team/samba>
 
-- **Image Playback**
+- **Image Playback**  
   Using Samba and pqiv, drop image file or files into the images share folder for immediate playback over the timer output or on HDMI-0 when timer is use on HDMI-1. Great for still-stores and looping slideshow playback. <https://github.com/phillipberndt/pqiv>
 
-- **Video Playback**
+- **Video Playback**  
   Using Samba and mpv, drop a video or video files into the video share folder, for immediate playback over the timer output or on HDMI-0 when timer is use on HDMI-1. Great for looping a video/videos. 1080p max and videos should be encoded for the Pi. <https://github.com/mpv-player/mpv>
 
 - **Spotify Connect**  
