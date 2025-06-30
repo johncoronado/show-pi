@@ -21,6 +21,12 @@ speech_config = speechsdk.SpeechConfig(
     subscription=creds["key"],
     region=creds["region"]
 )
+
+speech_config.set_property(
+    property_id = speechsdk.PropertyId.SpeechServiceResponse_StablePartialResultThreshold,
+    value = "20" # string, not int
+)
+
 speech_config.set_property(
     speechsdk.PropertyId.SpeechServiceResponse_PostProcessingOption,
     "TrueText"
