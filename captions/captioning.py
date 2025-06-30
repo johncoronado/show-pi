@@ -24,7 +24,6 @@ import caption_helper
 import helper
 import user_config_helper
 import json
-from os import linesep
 
 # ——— Load Azure creds ———
 cred_path = os.path.expanduser("~/git/azure_speech_creds")
