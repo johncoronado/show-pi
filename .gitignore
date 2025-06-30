@@ -8,5 +8,4 @@ config-files/docker-compose.yml
 site/
 captions/__pycache__/caption_helper.cpython-311.pyc
 captions/__pycache__/helper.cpython-311.pyc
-.gitignore
 captions/__pycache__/user_config_helper.cpython-311.pyc
