@@ -13,15 +13,25 @@
 
 from datetime import time
 from itertools import pairwise
-from os import linesep, remove
 from os.path import exists
 from time import sleep
 from typing import List, Optional
+from os import linesep, remove
+import os
 import wave
 import azure.cognitiveservices.speech as speechsdk  # type: ignore
 import caption_helper
 import helper
 import user_config_helper
+import json
+from os import linesep
+
+# ——— Load Azure creds ———
+cred_path = os.path.expanduser("~/git/azure_speech_creds")
+with open(cred_path, "r") as f:
+    creds = json.load(f)
+os.environ["SPEECH_KEY"] = creds["key"]
+os.environ["SPEECH_REGION"] = creds["region"]
 
 USAGE = """Usage: python captioning.py [...]
 

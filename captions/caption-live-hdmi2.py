@@ -12,7 +12,7 @@ import tkinter as tk
 os.environ["DISPLAY"] = ":0"
 
 # ——— Load Azure creds ———
-cred_path = os.path.expanduser("~/.azure_speech_creds")
+cred_path = os.path.expanduser("~/git/azure_speech_creds")
 with open(cred_path, "r") as f:
     creds = json.load(f)
 
