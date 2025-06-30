@@ -206,7 +206,7 @@ class Captioning(object):
             self._user_config["language"],
             self._user_config["max_line_length"],
             self._user_config["lines"],
-            list(self._offline_results)
+            list(self._offline_results) # type: ignore
         )
         # Save the last caption.
         last_caption = captions[-1]
