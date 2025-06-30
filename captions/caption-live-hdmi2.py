@@ -3,7 +3,7 @@ import os
 import json
 import time
 import threading
-import azure.cognitiveservices.speech as speechsdk
+import azure.cognitiveservices.speech as speechsdk # type: ignore
 from collections import deque
 import textwrap
 import tkinter as tk
