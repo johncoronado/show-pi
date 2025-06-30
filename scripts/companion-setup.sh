@@ -5,7 +5,7 @@
 #       Command > /tmp/log.txt 2>&1 &
 #       spinner $! "Doing something..." /tmp/log.txt
 # shellcheck disable=SC1091
-source $HOME/git-keys/spinner.sh
+source $HOME/show-pi/scripts/spinner.sh
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Companion?"\033[0m (y/n): "
