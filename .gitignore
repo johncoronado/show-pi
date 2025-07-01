@@ -2,4 +2,4 @@
 config-files/smb.conf
 config-files/motd
 .DS_Store
-showfiles/
+show-files/
