@@ -8,7 +8,7 @@ echo -e -n "\n\033[1m"Install Show-Pi Videos?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
-    IMAGES_DIR="$HOME/show-pi/showfiles/show-videos"
+    IMAGES_DIR="$HOME/show-pi/show-files/show-videos"
 
     # Installs packages for videos.
     sudo apt install mpv inotify-tools -y >/tmp/log.txt 2>&1 &

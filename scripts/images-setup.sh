@@ -8,7 +8,7 @@ echo -e -n "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
-	IMAGES_DIR="$HOME/show-pi/showfiles/show-images"
+	IMAGES_DIR="$HOME/show-pi/show-files/show-images"
 
 	# Installs packages for images.
 	sudo apt install pqiv inotify-tools -y >/tmp/log.txt 2>&1 &
