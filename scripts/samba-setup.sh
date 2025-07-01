@@ -19,8 +19,8 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 	#adds user to samba user list gives terminal input
 	sudo smbpasswd -a "$current_user" </dev/tty
 
-	# Create the 'showfiles' directory if it doesn't exist
-	mkdir -p showfiles
+	# Create the 'show-files' directory if it doesn't exist
+	mkdir -p show-files
 
 	#Copy Samba template conf to new file
 	cp ~/show-pi/config-files/smb-temp.conf ~/show-pi/config-files/smb.conf
