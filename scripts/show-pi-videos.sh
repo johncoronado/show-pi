@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory to watch for videos
-WATCH_DIR="$HOME/show-pi/showfiles/show-videos"
+WATCH_DIR="$HOME/show-pi/show-files/show-videos"
 APP="mpv"
 
 # Function to count videos files recursively

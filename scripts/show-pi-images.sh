@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory to watch for images
-WATCH_DIR="$HOME/show-pi/showfiles/show-images"
+WATCH_DIR="$HOME/show-pi/show-files/show-images"
 APP="pqiv"
 
 # Function to count image files recursively
