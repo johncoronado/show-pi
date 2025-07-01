@@ -6,7 +6,6 @@ show-files/
 ontime-data/
 config-files/docker-compose.yml
 site/
-showfiles/
 captions/__pycache__/caption_helper.cpython-311.pyc
 captions/__pycache__/helper.cpython-311.pyc
 .gitignore
