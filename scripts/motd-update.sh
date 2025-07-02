@@ -7,15 +7,22 @@ MOTD_FILE="$HOME/show-pi/config-files/motd"
 
 {
     echo ""
-    echo -e "Welcome, \033[1;33m$(logname)\033[0m"
     echo -e "Hostname: \033[1;33m$(hostname)\033[0m"
     echo -e "To control Ontime, \033[1;33mhttp://$(hostname).local:4001/editor\033[0m"
     echo -e "To control Companion, \033[1;33mhttp://$(hostname).local:8000\033[0m"
-    echo -e "To play images, navigate to the network share and place an image in the show-images folder"
-    echo -e "It is recommended that you bookmark these websites for fast access.\n"
-    echo -e "Use ./scripts/hotspot-setup.sh for networking setup. Or nmtui."
+    echo -e "It is recommended that you bookmark these websites for fast access"
+    echo -e "To play content, place file in the respective folder in the show-files directory."
+    echo -e "Use ./scripts/hotspot-setup.sh for networking setup. Or nmtui.\n"
 
 } >>"$MOTD_FILE"
 
-sudo cp $MOTD_FILE /etc/motd
-echo -e "\nMOTD file has been updated"
+# Asks to run script
+echo -e -n "\n\033[1m"Update your login motd file?"\033[0m (y/n): "
+read -r -p "" choice </dev/tty
+if [[ "$choice" =~ ^[Yy]$ ]]; then
+
+    sudo cp $MOTD_FILE /etc/motd
+    echo -e "\nmotd file has been updated\n"
+else
+    echo -e "\nmotd file has not been updated.\nView it at ~/show-pi/config-files/motd\n"
+fi

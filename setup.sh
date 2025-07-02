@@ -11,6 +11,14 @@ source $HOME/show-pi/scripts/spinner.sh
 
 ORDER_FILE="config-files/script-run-order.conf"
 
+# Clears screen
+clear
+
+# Display the logo
+cat "$HOME/show-pi/config-files/logo"
+echo -e "\n\033[1;33mWelcome to Show-Pi setup!\033[0m"
+echo -e "This script needs stable internet access"
+
 # Check if the order file exists
 if [[ ! -f "$ORDER_FILE" ]]; then
   echo "Error: $ORDER_FILE not found."
