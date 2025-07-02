@@ -31,8 +31,8 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 	# Append the share configuration for the current user
 	cat <<EOL >>"$smb_conf"
 
-[showfiles]
-  path = $user_home/show-pi/showfiles
+[show-files]
+  path = $user_home/show-pi/show-files
   browsable = yes
   writable = yes
   guest ok = yes
@@ -46,7 +46,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 EOL
 
 	# Notify the user
-	echo "Samba share configuration for 'showfiles' added for user '$current_user'"
+	echo "Samba share configuration for 'show-files' added for user '$current_user'"
 
 	# Define source and destination paths
 	source="$user_home/show-pi/config-files/smb.conf"
