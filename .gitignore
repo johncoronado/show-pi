@@ -3,6 +3,7 @@ config-files/smb.conf
 config-files/motd
 .DS_Store
 show-files/
+ontime-data/
 captions/__pycache__/caption_helper.cpython-311.pyc
 captions/__pycache__/helper.cpython-311.pyc
 .gitignore
