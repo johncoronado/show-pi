@@ -31,7 +31,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     spinner $! "Getting docker-compose..." /tmp/log.txt
 
     # Start docker-compose in detached mode
-    sudo docker-compose up -d >/tmp/log.txt 2>&1 &
+    docker-compose up -d >/tmp/log.txt 2>&1 &
     spinner $! "Starting Ontime..." /tmp/log.txt
     echo "Ontime container started."
 else
