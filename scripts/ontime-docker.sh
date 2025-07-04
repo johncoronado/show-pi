@@ -22,19 +22,43 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     sudo docker pull getontime/ontime >/tmp/log.txt 2>&1 &
     spinner $! "Getting Ontime..." /tmp/log.txt
 
-    # Navigate to config-files directory
-    cd ~/show-pi/config-files || {
-        echo "Error: ~/config-files directory not found."
-        exit 1
-    }
     # Install docker-compose
     sudo apt install -y docker-compose >/tmp/log.txt 2>&1 &
     spinner $! "Getting docker-compose..." /tmp/log.txt
 
+    # Sets timezone for docker-compose file creation
+    TZ=$(cat /etc/timezone)
+    export TZ
+
+    cat <<EOF > ~/show-pi/config-files/docker-compose.yml
+version: "3"
+
+services:
+  ontime:
+    container_name: ontime
+    image: getontime/ontime:latest
+    ports:
+      - "4001:4001/tcp"
+      - "8888:8888/udp"
+      - "9999:9999/udp"
+    volumes:
+      - "${HOME}/show-pi/ontime-data:/data/"
+    environment:
+      - TZ=${TZ}
+    restart: unless-stopped
+EOF
+
+    # Navigate to config-files directory
+    cd ~/show-pi/config-files || exit
+    
     # Start docker-compose in detached mode
-    docker-compose up -d >/tmp/log.txt 2>&1 &
+    sudo docker-compose up -d >/tmp/log.txt 2>&1 &
     spinner $! "Starting Ontime..." /tmp/log.txt
-    echo "Ontime container started."
+
+    # Sets ownership of the ontime-data directory to the current user
+    sudo chown -R "$USER:$USER" "$HOME/show-pi/ontime-data"
+
+
 else
     echo -e "Skipped Ontime Timer install.\n"
 fi
