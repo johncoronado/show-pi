@@ -52,7 +52,7 @@ EOF
     cd ~/show-pi/config-files || exit
     
     # Start docker-compose in detached mode
-    docker-compose up -d >/tmp/log.txt 2>&1 &
+    sudo docker-compose up -d >/tmp/log.txt 2>&1 &
     spinner $! "Starting Ontime..." /tmp/log.txt
 
     # Sets ownership of the ontime-data directory to the current user
