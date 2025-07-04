@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Sourcing spinner script in scripts directory
-source $HOME/show-pi/scripts/spinner.sh
+# shellcheck source=/dev/null
+source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Ontime Timer?"\033[0m (y/n): "
@@ -9,13 +10,13 @@ echo -e -n "\n\033[1m"Install Ontime Timer?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
-    # Install Docker for raspi from official documentation
+    # Install Docker for raspberry pi from official documentation
     echo "Starting Ontime Docker setup..."
     curl -sSL https://get.docker.com | sh >/tmp/log.txt 2>&1 &
     spinner $! "Getting Docker..." /tmp/log.txt
 
     # Add current user to docker group
-    sudo usermod -aG docker $USER
+    sudo usermod -aG docker "$USER"
 
     # Pull latest Ontime Docker image
     sudo docker pull getontime/ontime >/tmp/log.txt 2>&1 &
@@ -35,5 +36,5 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     spinner $! "Starting Ontime..." /tmp/log.txt
     echo "Ontime container started."
 else
-    echo -e "Skipped Ontimer Timer install.\n"
+    echo -e "Skipped Ontime Timer install.\n"
 fi

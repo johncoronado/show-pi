@@ -24,13 +24,13 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Using Samba and mpv, drop a video or video files into the video share folder, for immediate playback over the timer output or on HDMI-0 when timer is use on HDMI-1. Great for looping a video/videos. 1080p max and videos should be encoded for the Pi. <https://github.com/mpv-player/mpv>
 
 - **Spotify Connect**  
-  Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. Will wokr with Rasberry Pi 5 with addition soundcard and setup of the asound.conf file. <https://github.com/dtcooper/raspotify>
+  Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. This will work with Raspberry Pi 5 with additional sound card and setup of the asound.conf file. <https://github.com/dtcooper/raspotify>
 
 - **USB-C Serial Console**  
   Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner. This script is available but not run on the main setup.
 
 - **Hotspot Router**  
-  Enables a wifi hotspot for easy control and logon in the field. Timer and compantion can be accessed without a full network/router deployment.
+  Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment.
 
 - **Dual Screen Output**  
   Use both HDMI ports for timer and image/video playback. Enables always on timer mode (HDMI-0) with playback out on black in standby for content. (HDMI-0)
@@ -56,10 +56,11 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - Customize your OS setting on Raspberry Pi Imager to preconfigure your hostname, username, wifi, etc.
 - Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
-- Run the update command
+- Run the update commands (Each line is a separate command)
 
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 ```
 
 - Reboot your system
@@ -71,7 +72,7 @@ sudo reboot
 - Install git
 
 ```bash
-sudo apt install git
+sudo apt install git -y
 ```
 
 - Clone the repository and run the setup script:

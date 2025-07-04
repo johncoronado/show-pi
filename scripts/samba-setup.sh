@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Sorucing spinner
-source $HOME/show-pi/scripts/spinner.sh
+# Sourcing spinner function for progress indication
+source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Show-Pi file sharing?"\033[0m (y/n): "
@@ -14,7 +14,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 
 	# Get the current user and home directory
 	current_user=$(whoami)
-	user_home=$(eval echo ~$USER)
+	user_home=$(eval echo "~$USER")
 
 	#adds user to samba user list gives terminal input
 	sudo smbpasswd -a "$current_user" </dev/tty

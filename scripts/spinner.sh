@@ -1,4 +1,6 @@
 # spinner.sh
+# shellcheck shell=bash
+
 spinner() {
     local pid=$1
     local message=$2
@@ -16,7 +18,7 @@ spinner() {
         sleep $delay
     done
 
-    wait $pid
+    wait "$pid"
     local EXIT=$?
     tput cnorm
 

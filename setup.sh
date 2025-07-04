@@ -3,7 +3,7 @@
 # This start setup script goes through the script-run-order.conf and
 # creates a small footprint of interactivity.
 
-# Gets spinner funtion
+# Gets spinner function 
 # spinner example.
 #       Command > /tmp/log.txt 2>&1 &
 #       spinner $! "Doing something..." /tmp/log.txt
@@ -34,6 +34,7 @@ while IFS= read -r script_path; do
     echo -e "Show-Pi setup exited\n"
   fi
 done <"$ORDER_FILE"
+
 # Clean up packages
 sudo apt autoremove -y >/tmp/log.txt 2>&1 &
 spinner $! "Cleaning up..." /tmp/log.txt
