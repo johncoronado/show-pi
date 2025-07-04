@@ -5,3 +5,4 @@ config-files/motd
 show-files/
 ontime-data/
 config-files/docker-compose.yml
+site/
