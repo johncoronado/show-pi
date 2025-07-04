@@ -7,9 +7,9 @@ MOTD_FILE="$HOME/show-pi/config-files/motd"
 
 {
     echo ""
-    echo -e "Hostname: \033[1;33m$(hostname)\033[0m"
     echo -e "To control Ontime, \033[1;33mhttp://$(hostname).local:4001/editor\033[0m"
     echo -e "To control Companion, \033[1;33mhttp://$(hostname).local:8000\033[0m"
+    echo -e "To view the offline GitHub Pages, \033[1;33mhttp://$(hostname).local:8010\033[0m"
     echo -e "It is recommended that you bookmark these websites for fast access"
     echo -e "To play content, place file in the respective folder in the show-files directory."
     echo -e "Use ./scripts/hotspot-setup.sh for networking setup. Or nmtui.\n"
