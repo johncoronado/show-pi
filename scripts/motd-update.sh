@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Updates the motd file for good info on login and copies it to /etc/motd
-cp $HOME/show-pi/config-files/logo $HOME/show-pi/config-files/motd
+cp "$HOME"/show-pi/config-files/logo "$HOME"/show-pi/config-files/motd
 
 MOTD_FILE="$HOME/show-pi/config-files/motd"
 
@@ -21,7 +21,7 @@ echo -e -n "\n\033[1m"Update your login motd file?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
-    sudo cp $MOTD_FILE /etc/motd
+    sudo cp "$MOTD_FILE" /etc/motd
     echo -e "\nmotd file has been updated\n"
 else
     echo -e "\nmotd file has not been updated.\nView it at ~/show-pi/config-files/motd\n"
