@@ -4,3 +4,4 @@ config-files/motd
 .DS_Store
 show-files/
 ontime-data/
+config-files/docker-compose.yml
