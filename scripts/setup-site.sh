@@ -7,6 +7,7 @@ SERVICE_DIR="$HOME/.config/systemd/user"
 SERVICE_NAME="show-pi-site.service"
 SERVICE_PATH="$SERVICE_DIR/$SERVICE_NAME"
 SERVICE_TEMPLATE="$PROJECT_DIR/config-files/site-services.conf"
+SITE_URL="http://${HOSTNAME:-$(hostname)}.local:8010"
 
 echo -e "\nInstalling required packages..."
 sudo apt update
@@ -59,4 +60,4 @@ systemctl --user start "$SERVICE_NAME"
 echo -e "\nService ready: $SERVICE_NAME"
 echo "It will serve the site from: $PROJECT_DIR/site"
 echo "Auto-starts at login via systemd --user"
-echo "URL: http://showpi.local:8010 or Pi's IP"
+echo "URL: $SITE_URL"
