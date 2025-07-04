@@ -4,10 +4,7 @@
 # creates a small footprint of interactivity.
 
 # Gets spinner function 
-# spinner example.
-#       Command > /tmp/log.txt 2>&1 &
-#       spinner $! "Doing something..." /tmp/log.txt
-source $HOME/show-pi/scripts/spinner.sh
+source "$HOME"/show-pi/scripts/spinner.sh
 
 ORDER_FILE="config-files/script-run-order.conf"
 
