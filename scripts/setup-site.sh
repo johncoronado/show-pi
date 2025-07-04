@@ -40,9 +40,21 @@ else
 fi
 
 # Reload and enable the user service
-systemctl --user daemon-reexec
 systemctl --user daemon-reload
 systemctl --user enable "$SERVICE_NAME"
+
+## Build MkDocs site if it doesn't exist yet
+if [ ! -d "$PROJECT_DIR/site" ]; then
+  echo -e "\n📄 Building initial site (mkdocs build)..."
+  cd "$PROJECT_DIR" || exit 1
+  mkdocs build
+else
+  echo -e "\nSite already exists: $PROJECT_DIR/site"
+fi
+
+# Start the service
+echo -e "\nStarting the MkDocs site service..."
+systemctl --user start "$SERVICE_NAME"
 
 echo -e "\nService ready: $SERVICE_NAME"
 echo "It will serve the site from: $PROJECT_DIR/site"
