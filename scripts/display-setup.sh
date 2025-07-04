@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sourcing spinner script in scripts directory
-source $HOME/show-pi/scripts/spinner.sh
+source "$HOME/show-pi/scripts/spinner.sh"
 
 # Asks to run script
 echo -ne "\n\033[1mSet up display output?\033[0m (y/n): "
@@ -45,7 +45,7 @@ EOF
     fi
 
     # Copies config to force rpi5 to used correct setting for gpu
-    sudo cp $HOME/show-pi/config-files/99-v3d.conf /etc/X11/xorg.conf.d/
+    sudo cp "$HOME"/show-pi/config-files/99-v3d.conf /etc/X11/xorg.conf.d/
 
     echo -e "Display output setup complete."
 else

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Sorucing spinner
-source $HOME/show-pi/scripts/spinner.sh
+# Sourcing spinner
+source "$HOME/show-pi/scripts/spinner.sh"
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
@@ -20,13 +20,8 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 	mkdir -p "$HOME/.config/systemd/user"
 	echo "Images directory created"
 
-	# Copies images script to local bin and makes it executable
-	#sudo cp $HOME/show-pi/scripts/show-pi-images.sh $HOME/.config/systemd/show-pi-images.sh
-	#sudo chmod +x /usr/local/bin/show-pi-images.sh
-	#echo "Copying show-pi-script to local/bin"
-
 	# Creates a systemd service file
-	sudo cp $HOME/show-pi/config-files/show-pi-images.conf $HOME/.config/systemd/user/show-pi-images.service
+	sudo cp "$HOME"/show-pi/config-files/show-pi-images.conf "$HOME"/.config/systemd/user/show-pi-images.service
 	echo "Copying show-pi-images.conf "
 
 	# Enables and starts service

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# Gets spinner funtion
+# Gets spinner function
 # spinner example.
 #       Command > /tmp/log.txt 2>&1 &
 #       spinner $! "Doing something..." /tmp/log.txt
-# shellcheck disable=SC1091
-source $HOME/show-pi/scripts/spinner.sh
+
+source "$HOME/show-pi/scripts/spinner.sh"
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Companion?"\033[0m (y/n): "
@@ -26,7 +26,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 	# Removes the script from show-pi directory
 	rm install.sh
 
-	# Starts the compannion service
+	# Starts the companion service
 	sudo systemctl start companion.service
 else
 	echo -e "Skipped Companion install\n"

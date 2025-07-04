@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sourcing spinner script in scripts directory
-source $HOME/show-pi/scripts/spinner.sh
+source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Show-Pi Videos?"\033[0m (y/n): "
@@ -21,7 +21,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     echo "Videos directory created"
 
     # Creates a systemd service file
-    sudo cp $HOME/show-pi/config-files/show-pi-videos.conf $HOME/.config/systemd/user/show-pi-videos.service
+    sudo cp "$HOME"/show-pi/config-files/show-pi-videos.conf "$HOME"/.config/systemd/user/show-pi-videos.service
     echo "Copying show-pi-videos.conf "
 
     # Enables and starts service

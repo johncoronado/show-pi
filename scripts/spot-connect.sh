@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sourcing spinner script in scripts directory
-source $HOME/show-pi/scripts/spinner.sh
+source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
 echo -e -n "\n\033[1m"Install Raspotify"\033[0m (y/n): "
