@@ -33,7 +33,7 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment.
 
 - **Dual Screen Output**  
-  Use both HDMI ports for timer and image/video playback. Enables always on timer mode (HDMI-0) with playback out on black in standby for content. (HDMI-0)
+  Use both HDMI ports for timer and image/video playback. Enables always-on timer mode on HDMI-1 with playback on standby for content on HDMI-0.
 
 ## Features
 
@@ -56,7 +56,7 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
 - Customize your OS setting on Raspberry Pi Imager to preconfigure your hostname, username, wifi, etc.
 - Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
-- Run the update commands (Each line is a separate command)
+- Run the update commands. Each line is a seperate command.
 
 ```bash
 sudo apt update
@@ -91,7 +91,7 @@ sudo reboot
 
 ## USB-C Console Access (Mac/PC)
 
-- Run the USB-C Console script prior to use. It is recommended use is during times of hotspot or networking changes. This ensures a connection is available to revert settings if connection or access is lost.
+- Run the USB-C Console script prior to use if you plan to change networking settings. It is recommended use is during times of hotspot or networking changes. This ensures a connection is available to revert settings if connection or access is lost.
 
 ```bash
 ./scripts/usbc-console.sh
