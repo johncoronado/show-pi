@@ -89,31 +89,6 @@ cd show-pi
 sudo reboot
 ```
 
-## USB-C Console Access (Mac/PC)
-
-- Run the USB-C Console script prior to use if you plan to change networking settings. It is recommended use is during times of hotspot or networking changes. This ensures a connection is available to revert settings if connection or access is lost.
-
-```bash
-./scripts/usbc-console.sh
-```
-
-- Connect
-   Plug a USB-C cable from your Mac or PC into the Raspberry Pi’s USB-C port.
-
-- Find the Serial Port
-  - Mac: Open Terminal and run:
-     ls /dev/tty.usb*
-  - Windows: Open Device Manager and check under “Ports (COM & LPT)” for “USB Serial”
-
-- Open Terminal Connection
-  - Mac/Linux:
-     screen /dev/tty.usbXXXXX 115200
-  - Windows:
-     Use PuTTY → select the correct COM port → set Speed to 115200
-
-- Login to Pi
-   When the console appears, log in with your Raspberry Pi username and password.
-
 ## Disclaimer
 
 - Using all tools simultaneously can impact performance. Companion triggers and large pages can use a lot of resources. Please, test for your use cases thoroughly before using in the field.

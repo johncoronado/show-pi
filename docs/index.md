@@ -39,27 +39,6 @@ cd show-pi
 sudo reboot
 ```
 
-## Modules
-
-### Bitfocus Companion  
-  To control Companion, http://hostname.local:8000 or http://YOUR-IP-ADDRESS:8000  
-  The main local UI web page is dependant on your network and Raspberry Pi hostname.  When you use the Raspberry Pi Imager to download your OS, you have a chance to set your hostname. The URL will be displayed once the module finishes installing. For example, if your hostname was set to show-pi during set up, then your URL will be http://show-pi.local:8000. If you have work with companion before, this process has not changed. Please refer to (<https://github.com/bitfocus/companion/wiki>)
-
-### Ontime  
-To control Ontime, http://hostname.local:4001/editor or http://YOUR-IP-ADDRESS:4001/editor  
-The main local UI web page is dependant on your network and Raspberry Pi hostname.  When you use the Raspberry Pi Imager to download your OS, you have a chance to set your hostname. The URL will be displayed once the module finishes installing. For example, if your hostname was set to show-pi during set up, then your URL will be http://show-pi.local:8000. Please refer to (<https://docs.getontime.no/ontime/>)
-
-### Image Playback
-### Video Playback
-### Sambe File Sharing
-### Spotify Connect
-### Hotspot Setup
-### Display Setup
-### USB-C Console Connect
-### Local Website Setup
-
-
-
 ---
 
 This site is generated using [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs theme](https://squidfunk.github.io/mkdocs-material/).
