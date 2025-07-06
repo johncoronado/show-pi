@@ -58,7 +58,6 @@ EOF
     # Sets ownership of the ontime-data directory to the current user
     sudo chown -R "$USER:$USER" "$HOME/show-pi/ontime-data"
 
-
 else
     echo -e "Skipped Ontime Timer install.\n"
 fi

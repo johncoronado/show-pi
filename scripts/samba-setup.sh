@@ -45,9 +45,6 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
   read list = nobody
 EOL
 
-	# Notify the user
-	echo "Samba share configuration for 'show-files' added for user '$current_user'"
-
 	# Define source and destination paths
 	source="$user_home/show-pi/config-files/smb.conf"
 	destination="/etc/samba/smb.conf"
