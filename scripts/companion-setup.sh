@@ -13,7 +13,7 @@ read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
 	# Get install script install.sh from github.
-	curl -O https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh
+	curl -O https://raw.githubusercontent.com/bitfocus/companion-pi/main/install.sh >/tmp/log.txt 2>&1
 
   # Make the script executable
 	chmod +x install.sh
