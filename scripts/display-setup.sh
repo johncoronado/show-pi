@@ -28,7 +28,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     # Sets greetd service file
     sudo tee /etc/greetd/config.toml > /dev/null <<EOF
 [terminal]
-vt = 1
+vt = 2
 
 [default_session]
 command = "startx $HOME/.xinitrc"
