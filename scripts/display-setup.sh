@@ -18,6 +18,9 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     # Get the current username
     CURRENT_USER=$(whoami)
 
+    # Creates .cache directory
+    mkdir ~/.cache
+
     # Install packages
     sudo apt install --no-install-recommends greetd unclutter-xfixes chromium-browser xserver-xorg xinit x11-xserver-utils openbox xterm xserver-xorg-legacy -y >/tmp/log.txt 2>&1 &
     spinner $! "Setting up display outputs..." /tmp/log.txt
@@ -28,7 +31,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     # Sets greetd service file
     sudo tee /etc/greetd/config.toml > /dev/null <<EOF
 [terminal]
-vt = 2
+vt = 7
 
 [default_session]
 command = "startx $HOME/.xinitrc"
@@ -46,6 +49,10 @@ EOF
 
     # Copies config to force rpi5 to used correct setting for gpu
     sudo cp "$HOME"/show-pi/config-files/99-v3d.conf /etc/X11/xorg.conf.d/
+
+    # Disable gett@tty service
+    sudo systemctl disable getty@tty1.service
+    sudo systemctl mask getty@tty1.service
 
     echo -e "Display output setup complete."
 else
