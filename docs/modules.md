@@ -54,4 +54,4 @@
    When the console appears, log in with your Raspberry Pi username and password.
  
  **Hotspot Router**  
-  Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment. Not included in main setup script, but accessible in scripts directory. The script runs a script to ease the setup of a hot-spot name "show-pi". This hotspot can act as a quick way to control the Raspberry Pi if there is no network infrastructure. Please keep in mind, if you are not hard wired into the Pi via ethernet, you may lose access. 
+    Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment. Not included in main setup script, but accessible in scripts directory. The script runs a script to ease the setup of a hot-spot name "show-pi". This hotspot can act as a quick way to control the Raspberry Pi if there is no network infrastructure. Please keep in mind, if you are not hard wired into the Pi via ethernet, you may lose access. 
