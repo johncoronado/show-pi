@@ -4,7 +4,7 @@
 source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
-echo -e -n "\n\033[1m"Install Show-Pi file sharing?"\033[0m (y/n): "
+echo -e -n "\n\033[1m"Install file sharing?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
@@ -64,5 +64,5 @@ EOL
 	sudo systemctl restart smbd
 	echo "Samba service has been restarted."
 else
-	echo -e "Skipped Show-Pi file sharing."
+	echo -e "Skipped file sharing."
 fi

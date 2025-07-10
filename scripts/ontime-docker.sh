@@ -5,7 +5,7 @@
 source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
-echo -e -n "\n\033[1m"Install Ontime Timer?"\033[0m (y/n): "
+echo -e -n "\n\033[1m"Install Ontime?"\033[0m (y/n): "
 
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then

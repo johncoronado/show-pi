@@ -4,7 +4,7 @@
 source "$HOME"/show-pi/scripts/spinner.sh
 
 # Asks to run script
-echo -e -n "\n\033[1m"Install Show-Pi Videos?"\033[0m (y/n): "
+echo -e -n "\n\033[1m"Install video module?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
@@ -26,7 +26,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     systemctl --user enable show-pi-videos.service
     systemctl --user start show-pi-videos.service
 
-    echo "Show-Pi-Videos setup complete"
+    echo "Video module setup complete"
 else
-    echo -e "Skipped Show-Pi Videos install\n"
+    echo -e "Skipped video module install\n"
 fi

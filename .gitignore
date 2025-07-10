@@ -6,3 +6,4 @@ show-files/
 ontime-data/
 config-files/docker-compose.yml
 site/
+.vscode/

@@ -6,7 +6,7 @@
 - Customize your OS setting on Raspberry Pi Imager to preconfigure your hostname, username, wifi, etc.
 - Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
-- Run the update commands. Each line is a seperate command.
+- Run the update commands. Each line is a separate command.
 
 ```bash
 sudo apt update

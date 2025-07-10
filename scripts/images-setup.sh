@@ -4,7 +4,7 @@
 source "$HOME/show-pi/scripts/spinner.sh"
 
 # Asks to run script
-echo -e -n "\n\033[1m"Install Show-Pi Images?"\033[0m (y/n): "
+echo -e -n "\n\033[1m"Install images module?"\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 if [[ "$choice" =~ ^[Yy]$ ]]; then
 
@@ -26,7 +26,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 	systemctl --user enable show-pi-images.service
 	systemctl --user start show-pi-images.service
 
-	echo "Show-Pi-Images setup complete"
+	echo "Images module setup complete"
 else
-	echo -e "Skipped Show-Pi Images install\n"
+	echo -e "Skipped images module\n"
 fi
