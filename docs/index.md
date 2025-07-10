@@ -41,4 +41,3 @@ sudo reboot
 
 ---
 
-This site is generated using [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs theme](https://squidfunk.github.io/mkdocs-material/).

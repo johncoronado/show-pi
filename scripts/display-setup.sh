@@ -4,7 +4,7 @@
 source "$HOME/show-pi/scripts/spinner.sh"
 
 # Asks to run script
-echo -ne "\n\033[1mSet up display output?\033[0m (y/n): "
+echo -ne "\n\033[1mSet up display outputs?\033[0m (y/n): "
 read -r -p "" choice </dev/tty
 
 if [[ "$choice" =~ ^[Yy]$ ]]; then
@@ -54,7 +54,7 @@ EOF
     sudo systemctl disable getty@tty1.service
     sudo systemctl mask getty@tty1.service
 
-    echo -e "Display output setup complete."
+    echo -e "Display outputs setup complete."
 else
-    echo -e "Skipped display output setup\n"
+    echo -e "Skipped display outputs setup\n"
 fi
