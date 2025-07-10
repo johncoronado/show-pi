@@ -28,10 +28,10 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Use your premium spotify account to play back audio for testing or private listening. Shows up on list of devices to playback on your mobile spotify app. Works with Raspberry Pi 4's built-in headphone jack. This will work with Raspberry Pi 5 with additional sound card and setup of the asound.conf file. <https://github.com/dtcooper/raspotify>
 
 - **USB-C Serial Console**  
-  Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner. This script is available but not run on the main setup.
+  Enables a serial terminal connection over the Raspberry Pi 4/5’s USB-C port. Ideal for adjusting network or router settings without needing a monitor. A single USB-C cable provides both power and serial access (via /dev/ttyGS0), making field deployment simpler and cleaner. This script is available but not run on the main setup. Not included in main setup script, but accessible in scripts directory. 
 
 - **Hotspot Router**  
-  Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment.
+  Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment. Not included in main setup script, but accessible in scripts directory.
 
 - **Dual Screen Output**  
   Use both HDMI ports for timer and image/video playback. Enables always-on timer mode on HDMI-1 with playback on standby for content on HDMI-0.
@@ -70,6 +70,7 @@ sudo apt upgrade -y
 sudo reboot
 ```
 
+- Log back into Raspberry Pi
 - Install git
 
 ```bash
