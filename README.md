@@ -1,4 +1,4 @@
-# Show-Pi Production Toolkit
+# Show-Pi Video Production Toolkit
 
 A streamlined Raspberry Pi 4/5 configuration tool designed as a compact, deployable video engineering and production toolkit for corporate live event workflows.
 Documentation: (<https://johncoronado.github.io/show-pi/>)
