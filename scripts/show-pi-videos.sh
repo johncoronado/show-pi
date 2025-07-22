@@ -20,7 +20,7 @@ while true; do
     pkill -x "$APP"
     echo "Restarting mpv with $VIDEO_COUNT videos"
     # Start mpv with updated video list
-    mpv --fs --no-osd-bar --loop-playlist "$WATCH_DIR" &
+    mpv --gpu-context=wayland --hwdec=auto --fs --no-osd-bar --loop-playlist "$WATCH_DIR" &
   else
     # No videos: make sure mpv is not running
     pkill -x "$APP"
