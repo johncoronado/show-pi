@@ -34,7 +34,7 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment. Not included in main setup script, but accessible in scripts directory.
 
 - **Dual Screen Output**  
-  Use both HDMI ports for timer and image/video playback. Enables always-on timer mode on HDMI-1 with playback on standby for content on HDMI-0.
+  Use both HDMI ports for timer and image/video playback. Enables always-on timer mode on HDMI-1 with playback on standby for content on HDMI-0. Dual Screen use needs to boot the raspberry pi with both outputs connected to a destination. If you find that the images and video overlays onto the timer output, please reboot with both HDMI ports connected to destinations. 
 
 ## Features
 
