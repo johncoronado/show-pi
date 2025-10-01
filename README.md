@@ -34,7 +34,25 @@ This project automates the setup of a Raspberry Pi to serve as a multifunctional
   Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment. Not included in main setup script, but accessible in scripts directory.
 
 - **Dual Screen Output**  
-  Use both HDMI ports for timer and image/video playback. Enables always-on timer mode on HDMI-1 with playback on standby for content on HDMI-0. Dual Screen use needs to boot the raspberry pi with both outputs connected to a destination. If you find that the images and video overlays onto the timer output, please reboot with both HDMI ports connected to destinations. 
+  Use both HDMI ports for timer and image/video playback. Enables always-on timer mode on HDMI-1 with playback on standby for content on HDMI-0. Dual Screen use needs to boot the raspberry pi with both outputs connected to a destination. If you find that the images and video overlays onto the timer output, please reboot with both HDMI ports connected to destinations.
+
+- **MOTD Update**  
+  This module updates the ssh terminal login text to add important information and addresses for control. This is a generic banner with your local hostname and module control regardless of your chosen modules installed. An example output is provided below. 
+
+```text
+Linux showpi 6.12.34+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.34-1+rpt1~bookworm (2025-06-26) aarch64
+ ___  _                  ___  _ 
+/ __]| |_  ___  _ _ _   | . \[_]
+\__ \| . |/ . \| | | |  |  _/| |
+[___/|_|_|\___/|__/_/   |_|  |_|
+https://github.com/johncoronado/show-pi
+
+To control Ontime, http://showpi.local:4001/editor
+To control Companion, http://showpi.local:8000
+It is recommended that you bookmark these websites for fast access
+To play content, place file in the respective folder in the show-files directory.
+Last login: Tue Sep 30 17:25:09 2025
+```
 
 ## Features
 
