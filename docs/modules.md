@@ -55,3 +55,21 @@
  
  **Hotspot Router**  
     Enables a wifi hotspot for easy control and logon in the field. Timer and companion can be accessed without a full network/router deployment. Not included in main setup script, but accessible in scripts directory. The script runs a script to ease the setup of a hot-spot name "show-pi". This hotspot can act as a quick way to control the Raspberry Pi if there is no network infrastructure. Please keep in mind, if you are not hard wired into the Pi via ethernet, you may lose access. 
+
+**MOTD Update**  
+  This module updates the ssh terminal login text to add important information and addresses for control. This is a generic banner with your local hostname and module control regardless of your chosen modules installed. An example output is provided below. 
+
+```text
+Linux showpi 6.12.34+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.34-1+rpt1~bookworm (2025-06-26) aarch64
+ ___  _                  ___  _ 
+/ __]| |_  ___  _ _ _   | . \[_]
+\__ \| . |/ . \| | | |  |  _/| |
+[___/|_|_|\___/|__/_/   |_|  |_|
+https://github.com/johncoronado/show-pi
+
+To control Ontime, http://showpi.local:4001/editor
+To control Companion, http://showpi.local:8000
+It is recommended that you bookmark these websites for fast access
+To play content, place file in the respective folder in the show-files directory.
+Last login: Tue Sep 30 17:25:09 2025
+```
