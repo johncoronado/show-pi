@@ -59,7 +59,7 @@
 **MOTD Update**  
   This module updates the ssh terminal login in text to add important links and addresses for control. This is a generic banner with your local hostname and module control regardless of your chosen modules installed. An example output is provided below. 
 
-```bash
+```text
 Linux showpi 6.12.34+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.34-1+rpt1~bookworm (2025-06-26) aarch64
  ___  _                  ___  _ 
 / __]| |_  ___  _ _ _   | . \[_]
