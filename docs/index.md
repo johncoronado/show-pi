@@ -2,9 +2,9 @@
 [Show-Pi GitHub Repo](https://github.com/johncoronado/show-pi)
 ## Installation
 
-- Use the official Raspberry Pi Imager (<https://www.raspberrypi.com/software/>) to download and install Raspberry Pi OS Lite (64-bit) on your connected boot drive of choice (SD card or USB).
+- Use the official Raspberry Pi Imager (<https://www.raspberrypi.com/software/>) to download and install Raspberry Pi OS Bookworm Lite (64-bit) on your connected boot drive of choice (SD card or USB).
 - Customize your OS setting on Raspberry Pi Imager to preconfigure your hostname, username, wifi, etc.
-- Boot your fresh install of Raspberry Pi OS Lite. It may reboot several times on first boot.
+- Boot your fresh install of Raspberry Pi OS Bookworm Lite. It may reboot several times on first boot.
 - Log into your Pi via SSH or by connecting a keyboard/mouse into your Pi.
 - Run the update commands. Each line is a separate command.
 
