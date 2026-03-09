@@ -23,8 +23,8 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     spinner $! "Getting Ontime..." /tmp/log.txt
 
     # Install docker-compose
-    sudo apt install -y docker-compose >/tmp/log.txt 2>&1 &
-    spinner $! "Getting docker-compose..." /tmp/log.txt
+    #sudo apt install -y docker-compose >/tmp/log.txt 2>&1 &
+    #spinner $! "Getting docker-compose..." /tmp/log.txt
 
     # Sets timezone for docker-compose file creation
     TZ=$(cat /etc/timezone)
@@ -52,7 +52,7 @@ EOF
     cd ~/show-pi/config-files || exit
     
     # Start docker-compose in detached mode
-    sudo docker-compose up -d >/tmp/log.txt 2>&1 &
+    sudo docker compose up -d >/tmp/log.txt 2>&1 &
     spinner $! "Starting Ontime..." /tmp/log.txt
 
     # Sets ownership of the ontime-data directory to the current user
