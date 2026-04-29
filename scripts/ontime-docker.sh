@@ -5,6 +5,7 @@
 source "$HOME"/show-pi/scripts/spinner.sh
 
 # Checks argument for cgroups add
+FILE="/boot/firmware/cmdline.txt"
 append_arg() {
   local arg="$1"
   if ! grep -qw "$arg" "$FILE"; then
