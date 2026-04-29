@@ -4,6 +4,14 @@
 # shellcheck source=/dev/null
 source "$HOME"/show-pi/scripts/spinner.sh
 
+# Checks argument for cgroups add
+append_arg() {
+  local arg="$1"
+  if ! grep -qw "$arg" "$FILE"; then
+    sudo sed -i "1 s|$| $arg|" "$FILE"
+  fi
+}
+
 # Asks to run script
 echo -e -n "\n\033[1m"Install Ontime?"\033[0m (y/n): "
 
@@ -58,7 +66,11 @@ EOF
 
     # Sets ownership of the ontime-data directory to the current user
     sudo chown -R "$USER:$USER" "$HOME/show-pi/ontime-data"
-
+    
+    # Sets cgroups for docker to use mem/cpu limits
+    append_arg "cgroup_enable=cpuset"
+    append_arg "cgroup_enable=memory"
+    append_arg "cgroup_memory=1"
 else
     echo -e "Skipped Ontime Timer install.\n"
 fi
