@@ -22,10 +22,6 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     sudo docker pull getontime/ontime >/tmp/log.txt 2>&1 &
     spinner $! "Getting Ontime..." /tmp/log.txt
 
-    # Install docker-compose
-    #sudo apt install -y docker-compose >/tmp/log.txt 2>&1 &
-    #spinner $! "Getting docker-compose..." /tmp/log.txt
-
     # Sets timezone for docker-compose file creation
     TZ=$(cat /etc/timezone)
     export TZ
@@ -45,6 +41,11 @@ services:
       - "${HOME}/show-pi/ontime-data:/data/"
     environment:
       - TZ=${TZ}
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
     restart: unless-stopped
 EOF
 
